@@ -1,0 +1,42 @@
+/* @media all and (max-width: 640px) {
+  .bf-header {
+    margin: 0;
+    padding-bottom: 10px;
+  }
+  .bf-main {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    height: 60vh;
+  }
+  .bf-login-form {
+    margin: 0px;
+    padding: 0px 20px 0px 20px;
+    display: block;
+    height: 60vh;
+    border-radius: 0;
+    width: 100%;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    max-width: unset;
+    min-width: unset;
+  }
+
+  .bf-login-form-title {
+    margin: 10px;
+  }
+  .bf-login-form-input {
+    width: 100%;
+  }
+
+  .bf-login-form-button {
+    width: 100%;
+    color: white;
+    -webkit-box-shadow: 0 0 10px 0px white;
+    box-shadow: 0 0 10px 0px white;
+    background-color: rgba(142, 0, 222, 1);
+  }
+  .bf-login-form-link {
+    float: right;
+  }
+} */

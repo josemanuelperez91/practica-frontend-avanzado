@@ -1,0 +1,24 @@
+{
+  "name": "beerflix",
+  "version": "1.0.0",
+  "description": "Practica FrontEnd Avanzado",
+  "main": "index.html",
+  "dependencies": {
+    "express": "^4.17.1",
+    "page": "^1.11.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josemanuelperez91/practica-frontend-avanzado.git"
+  },
+  "author": "Jose Manuel Perez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josemanuelperez91/practica-frontend-avanzado/issues"
+  },
+  "homepage": "https://github.com/josemanuelperez91/practica-frontend-avanzado#readme"
+}

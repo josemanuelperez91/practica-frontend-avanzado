@@ -1,0 +1,17 @@
+@media all and (max-width: 720px) {
+  .bf-navbar {
+    flex-direction: column;
+  }
+  .bf-main {
+    margin-top: 156px;
+  }
+  .bf-navbar-logo {
+    margin: 10px 0 10px 0;
+  }
+  .bf-navbar-search input {
+    width: 80vw;
+  }
+  .bf-navbar {
+    padding-bottom: 20px;
+  }
+}

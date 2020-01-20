@@ -1,0 +1,30 @@
+.bf-footer {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+}
+
+.bf-footer::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+ 
+
+.bf-footer-links {
+  list-style-type: none;
+  float:right;
+}
+
+.bf-footer-links > li {
+  margin: 10px 0px;
+}
+.bf-footer-links a {
+  color: white;
+  text-decoration: none;
+}
+.bf-footer-links a:before {
+    content:"🡕 ";
+}
+.bf-footer-links a:hover {
+  text-decoration: underline;
+}
