@@ -25,9 +25,8 @@
   filter: drop-shadow(0px 0px 6px white) 
 
 }
-.bf-beer-card h3 {
+.bf-beer-card-info h3 {
   text-align: center;
-  text-decoration: none;
   margin-bottom: 0;
 }
 

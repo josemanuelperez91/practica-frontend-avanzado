@@ -1,6 +1,7 @@
 @import "normalize.css";
 @import "navbar.css";
-@import "catalog.css";
+@import "grid.css";
+@import "beer-page.css";
 @import "responsive-navbar.css";
 
 *,
@@ -10,22 +11,30 @@
   box-sizing: border-box;
 }
 
-html{
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: unset;
+}
+
+html {
   height: 100%;
 }
 *:focus {
   outline: none;
 }
 input:focus {
-  -webkit-box-shadow: inset 0 0 4px 2px #EDAE49;
-  box-shadow: inset 0 0 4px 2px #EDAE49;
+  -webkit-box-shadow: inset 0 0 4px 2px #edae49;
+  box-shadow: inset 0 0 4px 2px #edae49;
 }
-
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background: #F15025;
+  background: #f15025;
   /*FALTA CONVERTIR*/
-  background-image: linear-gradient(1turn,#F15025, #FFA630);
+  background-image: linear-gradient(1turn, #f15025, #ffa630);
   background-repeat: no-repeat;
 }

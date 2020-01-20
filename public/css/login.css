@@ -86,7 +86,6 @@
   -ms-flex-item-align: end;
   align-self: flex-end;
   font-style: italic;
-  text-decoration: none;
   color: #f8f8f8;
 }
 .bf-login-form-link:hover {

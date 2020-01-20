@@ -17,7 +17,7 @@ export default class BeerFlixAPI {
     })
       .then(response => {
         if (!response.ok) {
-          throw new Error(`API Error`);
+          throw new Error(`API Error with beer catalog`);
         } else {
           return response.json();
         }
@@ -28,7 +28,29 @@ export default class BeerFlixAPI {
       .catch(error => {
         console.error(error);
       });
+  }
+  static async getBeer(beerID) {
+    const requestURL = `${APIURL}/beers/${beerID}`;
 
+    return fetch(requestURL, {
+      method: "GET",
+      headers: {
+        "X-API-KEY": APIKEY
+      }
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`API Error with beer ${id}`);
+        }
+        return response.json();
+      })
+      .then(result => {
+        return result.beer;
+      })
+      .catch(err => {
+        console.error(err.message);
+        throw err;
+      });
   }
 }
 // getShows: async text => {
