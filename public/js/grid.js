@@ -21,7 +21,6 @@ const renderBeerCards = async (search, date, limit) => {
 
   if (date) {
     const numDate = Number(date.split("-").join(""));
-    console.log(numDate);
 
     beers = beers.filter(beer => {
       const numDateBeer = Number(
@@ -30,8 +29,6 @@ const renderBeerCards = async (search, date, limit) => {
           .reverse()
           .join("")
       );
-      console.log(numDateBeer);
-
       return numDateBeer >= numDate;
     });
   }
