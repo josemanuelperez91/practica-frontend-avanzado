@@ -1,4 +1,4 @@
-import renderBeerCards from "./catalog.js";
+import renderBeerCards from "./grid-render.js";
 import { STORAGE_SEARCH_KEY } from "./search.js";
 
 const storedSearch = 
