@@ -41,5 +41,4 @@ const handleMonth = event => {
 };
 
 searchInputElement.oninput = handleSearch;
-
 monthInputElement.oninput = handleMonth;
