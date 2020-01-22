@@ -52,81 +52,31 @@ export default class BeerFlixAPI {
         throw err;
       });
   }
+  static async postComment(beerID, commentText) {
+    const requestURL = `${APIURL}/beers/${beerID}/comment`;
+
+    return fetch(requestURL, {
+      method: "POST",
+      headers: {
+        "X-API-KEY": APIKEY,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({"comment": commentText})
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`API Error with comment in beer ${beerID}`);
+        }
+        return response.json();
+      })
+      .then(result => {
+        return result.beer.comments;
+      })
+      .catch(err => {
+        console.error(err.message);
+        throw err;
+      });
+  }
 }
-// getShows: async text => {
-//   try {
-//     const URL = text
-//       ? `https://api.tvmaze.com/search/shows?q=${text}`
-//       : showsAPIEndpoint;
-//     const response = await fetch(URL, {
-//       method: "GET"
-//       // headers: {
-//       //   'X-API-KEY': API_KEY,
-//       // },
-//     });
-//     if (!response.ok) {
-//       throw new Error("Error retrieving shows");
-//     }
-//     const data = await response.json();
-//     const shows = data.map(result => {
-//       if (result.show) {
-//         return result.show;
-//       }
-//       return result;
-//     });
-//     return shows;
-//   } catch (err) {
-//     console.error(err.message);
-//     throw err;
-//   }
-// }
-// getShowDetail: id => {
-//   return fetch(`${showsAPIEndpoint}/${id}`)
-//     .then(response => {
-//       if (!response.ok) {
-//         throw new Error(`Error retrieving show ${id}`);
-//       }
-//       return response.json();
-//     })
-//     .catch(err => {
-//       console.error(err.message);
-//       throw err;
-//     });
-// },
-// getQuotes: async id => {
-//   try {
-//     const response = await fetch(`${apiURL}/quote/${id}`);
-//     if (!response.ok) {
-//       throw new Error("Error getQuotes");
-//     }
-//     const quotes = await response.json();
-//     return quotes;
-//   } catch (err) {
-//     console.error(err);
-//     throw err;
-//   }
-// },
-// createQuote: async (id, text) => {
-//   try {
-//     const response = await fetch(`${apiURL}/quote/${id}`, {
-//       method: "POST",
-//       body: JSON.stringify({ quote: text }),
-//       headers: {
-//         "Content-type": "application/json",
-//         "X-API-KEY": API_KEY
-//       }
-//     });
-//     console.log(response);
-//     if (!response.ok) {
-//       throw new Error("Error createQuote");
-//     }
-//     const responseBody = await response.json();
-//     return responseBody;
-//   } catch (err) {
-//     console.error(err);
-//     throw err;
-//   }
-// }
-//};
 
 // export default BeerFlixApi;

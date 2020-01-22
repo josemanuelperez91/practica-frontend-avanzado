@@ -1,9 +1,6 @@
 import BeerFlixAPI from "./beerflix-api.js";
 import resetMain from "./reset.js";
 
-const commentInput = document.querySelector(".bf-comment-input");
-const commentButton = document.querySelector(".bf-comment-button");
-
 const templateBeerIngredients = ingredients => {
   return `<p>Malt:</p>
   ${ingredients.malt
@@ -69,40 +66,40 @@ const templateComment = comment => {
   <div class="bf-comment-item">
   <span class="bf-comment-date">${formattedDate}</span>
   <div class="bf-comment-text">${comment.comment}</div>
-  <div>
+  </div>
 `;
 };
 
 const renderBeer = async beerID => {
   const beer = await BeerFlixAPI.getBeer(beerID);
   const beerPage = resetMain("bf-beer-page");
+
   beerPage.innerHTML = templateBeerPage(beer);
-  commentInput.oninput = handleInputArea;
-  commentButton.onclick = handleSubmit;
+
+  const commentInput = document.querySelector(".bf-comment-input");
+  const commentButton = document.querySelector(".bf-comment-button");
+
+  commentInput.oninput = event => {
+    event.target.style.height = "";
+    event.target.style.height = event.target.scrollHeight + "px";
+  };
 
   renderComments(beer.comments);
+
+  commentButton.onclick = async event => {
+    const commentText = commentInput.value;
+
+    if (commentText.trim() != "") {
+      const updatedComments = await BeerFlixAPI.postComment(beerID, commentText);
+      commentInput.value = "";
+      renderComments(updatedComments);
+    }
+  };
 };
 
 const renderComments = comments => {
-  console.log(comments);
-  const commentList = document.querySelector(".bf-comment-list");
-  commentList.innerHTML = comments.map(templateComment).join("");
+  const commentsListContainer = document.querySelector(".bf-comment-list");
+  commentsListContainer.innerHTML = comments.map((comment) =>templateComment(comment)).join("");
 };
-
-const handleInputArea = event => {
-  event.target.style.height = "";
-  event.target.style.height = event.target.scrollHeight + "px";
-};
-
-const handleSubmit = event => {
-  const commentText = commentInput.value;
-
-  if (commentText.trim() != "") {
-    event.target.setAttribute("disabled", true);
-    BeerFlixAPI.postComment(commentText);
-  }
-};
-
-searchInputElement.oninput = handleSearch;
 
 export default renderBeer;
