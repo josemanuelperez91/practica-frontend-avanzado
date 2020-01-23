@@ -16,29 +16,40 @@
   background-color: rgb(129, 43, 19);
 }
 
+.bf-navbar-icon {
+  position: relative;
+  float: left;
+  top: 10px;
+  right: 2px;
+  height: 40px;
+  width: 40px;
+}
+
 .bf-navbar-logo {
   font-size: 3rem;
   color: white;
-  text-shadow: 0 0 10px #EDAE49;
+  text-shadow: 0 0 10px #edae49;
   text-align: center;
   margin: 10px 0px 10px 25px;
 }
-
 
 .bf-navbar-search {
   padding-right: 10px;
 }
 .bf-navbar-search input {
   padding: 10px;
-  border-width: 0;
-  border-radius: 8px;
-  font-size: 1rem;
 }
+.bf-navbar-search input,
 .bf-navbar-month input {
   padding: 7px;
   border-width: 0;
   border-radius: 8px;
   font-size: 1rem;
+  margin: 10px 0px;
+  width: 180px;
+}
+.bf-navbar-search input {
+  padding: 10px;
 }
 
 .bf-navbar-search input::-webkit-input-placeholder {

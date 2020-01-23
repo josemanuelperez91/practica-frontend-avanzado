@@ -1,5 +1,7 @@
-import BeerFlixAPI from "./beerflix-api.js";
+import BeerFlixAPI from "./api-beerflix.js";
 import resetMain from "./reset.js";
+
+const DEFAULT_GRID_LIMIT = 10;
 
 const templateBeerCard = beer => {
   return `
@@ -15,7 +17,7 @@ const templateBeerCard = beer => {
     `;
 };
 
-const renderBeerCards = async (search, date, limit) => {
+const renderBeerCards = async (search, date, limit = DEFAULT_GRID_LIMIT) => {
   let beers = await BeerFlixAPI.getBeers(search, limit);
   const cardGrid = resetMain("bf-beer-grid");
 

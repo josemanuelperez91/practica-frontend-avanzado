@@ -92,6 +92,17 @@ textarea::placeholder {
 .bf-comment-text{
   margin: 10px;
 }
+.bf-like h2{
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+.bf-like-icon{
+  height: 40px;
+  width: 40px;
+  position: relative;
+  top: 10px;
+  cursor: pointer;
+}
 
 @media (max-width: 780px) {
   .bf-beer-portrait {

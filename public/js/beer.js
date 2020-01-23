@@ -1,4 +1,4 @@
-import BeerFlixAPI from "./beerflix-api.js";
+import BeerFlixAPI from "./api-beerflix.js";
 import resetMain from "./reset.js";
 
 const templateBeerIngredients = ingredients => {
@@ -47,10 +47,15 @@ ${templateBeerIngredients(beer.ingredients)}
 <p>${beer.brewersTips}</p>
 <p><i>By: ${beer.contributedBy}</i></p>
 </div>
+
 <div class="bf-comments">
+<div class="bf-like">
+<h2><img class="bf-like-icon" src="/icons/like-empty.svg">
+<span class="bf-like-counter">${beer.likes}</span></h2>
+</div>
 <h2>Comments:</h2>
 <div class="bf-comment-list">
-  <i>No comments yet...</i>
+  <p><i>No comments yet...</i></p>
 </div>
 <div class="bf-comment-form">
   <textarea class="bf-comment-input" placeholder="Write your opinion here"></textarea>
@@ -78,6 +83,26 @@ const renderBeer = async beerID => {
 
   const commentInput = document.querySelector(".bf-comment-input");
   const commentButton = document.querySelector(".bf-comment-button");
+  const likeButton = document.querySelector(".bf-like-icon");
+
+  const isLiked = Boolean(localStorage.getItem(`liked_${beerID}`));
+  if (isLiked) {
+    likeButton.style.pointerEvents = "none";
+    likeButton.src = `/icons/like.svg`;
+  } else {
+    likeButton.onclick = async event => {
+      likeButton.style.pointerEvents = "none";
+      try {
+        const updatedNumLikes = await BeerFlixAPI.postLike(beerID);
+        const likeCounterElement = document.querySelector(".bf-like-counter");
+        likeCounterElement.innerText = updatedNumLikes;
+        localStorage.setItem(`liked_${beerID}`, true);
+        likeButton.src = `/icons/like.svg`;
+      } catch (Error) {
+        likeButton.style.pointerEvents = "all";
+      }
+    };
+  }
 
   commentInput.oninput = event => {
     event.target.style.height = "";
@@ -90,7 +115,10 @@ const renderBeer = async beerID => {
     const commentText = commentInput.value;
 
     if (commentText.trim() != "") {
-      const updatedComments = await BeerFlixAPI.postComment(beerID, commentText);
+      const updatedComments = await BeerFlixAPI.postComment(
+        beerID,
+        commentText
+      );
       commentInput.value = "";
       renderComments(updatedComments);
     }
@@ -99,7 +127,11 @@ const renderBeer = async beerID => {
 
 const renderComments = comments => {
   const commentsListContainer = document.querySelector(".bf-comment-list");
-  commentsListContainer.innerHTML = comments.map((comment) =>templateComment(comment)).join("");
+  if (commentsListContainer.size) {
+    commentsListContainer.innerHTML = comments
+      .map(comment => templateComment(comment))
+      .join("");
+  }
 };
 
 export default renderBeer;
