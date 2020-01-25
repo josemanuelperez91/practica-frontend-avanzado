@@ -1,5 +1,6 @@
 import renderBeerCards from "./grid.js";
-import renderSigInDialog from "./signin.js";
+import renderSigInDialog, { API_KEY_COOKIE_NAME } from "./signin.js";
+import cookieManager from "./cookieManager.js";
 
 export const STORAGE_SEARCH_KEY = "search_value";
 export const STORAGE_MONTH_KEY = "month_value";
@@ -12,7 +13,7 @@ const monthFilterButtonElement = document.querySelector(
 const searchFilterButtonElement = document.querySelector(
   ".bf-navbar-icon.search"
 );
-const signInButtonElement = document.querySelector(".bf-signin");
+
 
 monthFilterButtonElement.onclick = function() {
   searchInputElement.style.display = "none";
@@ -30,7 +31,6 @@ searchFilterButtonElement.onclick = function() {
   this.classList.add("active");
 };
 
-signInButtonElement.onclick = renderSigInDialog;
 
 let searchValue = localStorage.hasOwnProperty(STORAGE_SEARCH_KEY)
   ? localStorage.getItem(STORAGE_SEARCH_KEY)
@@ -54,8 +54,14 @@ const searchTimer = searchInputValue => {
   }, 1000);
 };
 
+const apiKey = cookieManager.getCookie(API_KEY_COOKIE_NAME);
+
 const renderFilteredBeerCards = () => {
-  renderBeerCards(searchValue, monthValue);
+  if (apiKey) {
+    renderBeerCards(searchValue, monthValue);
+  } else {
+    renderSigInDialog();
+  }
 };
 
 const handleSearch = event => searchTimer(event.target.value);

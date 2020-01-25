@@ -2,6 +2,14 @@ import BeerFlixAPI from "./api-beerflix.js";
 import cookieManager from "./cookieManager.js";
 export const API_KEY_COOKIE_NAME = "api_key";
 
+const apiKey = cookieManager.getCookie(API_KEY_COOKIE_NAME);
+const signInButtonElement = document.querySelector(".bf-signin");
+
+const signOut = () => {
+  cookieManager.deleteCookie(API_KEY_COOKIE_NAME);
+  window.location.reload();
+};
+
 const removeSigInDialog = () => {
   document.querySelector(".bf-signin-dialog").remove();
   document.body.classList.remove("blocked");
@@ -54,5 +62,13 @@ const renderSigInDialog = () => {
     ".bf-signin-button.cancel"
   ).onclick = removeSigInDialog;
 };
+
+if (apiKey) {
+  signInButtonElement.innerHTML = `Sign Out`;
+  signInButtonElement.classList.add("signout");
+  signInButtonElement.onclick = signOut;
+} else {
+  signInButtonElement.onclick = renderSigInDialog;
+}
 
 export default renderSigInDialog;

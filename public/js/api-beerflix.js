@@ -1,7 +1,9 @@
-
-
 const APIURL = `https://beerflix-api.herokuapp.com/api/v1`;
-const APIKEY = `2REHCBB-QMWM8X9-Q02NYRY-JM7MYTR`;
+
+import cookieManager from "./cookieManager.js";
+import { API_KEY_COOKIE_NAME } from "./signin.js";
+
+const apiKey = cookieManager.getCookie(API_KEY_COOKIE_NAME);
 
 export default class BeerFlixAPI {
   static async getBeers(search, limit) {
@@ -14,7 +16,7 @@ export default class BeerFlixAPI {
     return fetch(requestURL, {
       method: "GET",
       headers: {
-        "X-API-KEY": APIKEY
+        "X-API-KEY": apiKey
       }
     })
       .then(response => {
@@ -37,7 +39,7 @@ export default class BeerFlixAPI {
     return fetch(requestURL, {
       method: "GET",
       headers: {
-        "X-API-KEY": APIKEY
+        "X-API-KEY": apiKey
       }
     })
       .then(response => {
@@ -60,7 +62,7 @@ export default class BeerFlixAPI {
     return fetch(requestURL, {
       method: "POST",
       headers: {
-        "X-API-KEY": APIKEY,
+        "X-API-KEY": apiKey,
         "Content-Type": "application/json"
       },
       body: JSON.stringify({ comment: commentText })
@@ -86,7 +88,7 @@ export default class BeerFlixAPI {
     return fetch(requestURL, {
       method: "POST",
       headers: {
-        "X-API-KEY": APIKEY,
+        "X-API-KEY": apiKey,
         "Content-Type": "application/json"
       }
     })

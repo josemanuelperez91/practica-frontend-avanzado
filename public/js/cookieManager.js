@@ -11,6 +11,6 @@ export default class cookieManager {
   };
 
   static deleteCookie = name => {
-    setCookie(name, "", -1);
+    this.setCookie(name, "", -1);
   };
 }
