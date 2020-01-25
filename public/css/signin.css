@@ -1,4 +1,4 @@
-.bf-sigin-dialog {
+.bf-signin-dialog {
   position: absolute;
 
   z-index: 999;
@@ -28,20 +28,20 @@
     from { transform:  translateX(-10px); }
     to   { transform:  translateX(10px); }
   }
-.bf-sigin-input {
+.bf-signin-input {
   border-width: 0;
   border-radius: 8px;
   font-size: 1rem;
   width: 100%;
   padding: 10px;
 }
-.bf-sigin-info {
+.bf-signin-info {
     margin: 20px 10px;
     color: white;
     font-size: 1.2rem;
     font-weight: bold;
   }
-.bf-sigin-button {
+.bf-signin-button {
   border-width: 0;
   border-radius: 8px;
   display: inline-block;
@@ -53,7 +53,7 @@
   cursor: pointer;
 }
 
-.bf-sigin-button.cancel {
+.bf-signin-button.cancel {
   background-color: white;
   margin-top: 10px;
   color: rgb(129, 43, 19);

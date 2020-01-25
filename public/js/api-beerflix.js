@@ -1,5 +1,7 @@
-const APIKEY = `2REHCBB-QMWM8X9-Q02NYRY-JM7MYTR`;
+
+
 const APIURL = `https://beerflix-api.herokuapp.com/api/v1`;
+const APIKEY = `2REHCBB-QMWM8X9-Q02NYRY-JM7MYTR`;
 
 export default class BeerFlixAPI {
   static async getBeers(search, limit) {
@@ -103,7 +105,7 @@ export default class BeerFlixAPI {
       });
   }
 
-  static async sigIn(email) {
+  static async signIn(email) {
     const requestURL = `${APIURL}/user/login`;
 
     return fetch(requestURL, {
@@ -128,7 +130,7 @@ export default class BeerFlixAPI {
         throw err;
       });
   }
-  static async sigIn(email) {
+  static async signIn(email) {
     const requestURL = `${APIURL}/user/login`;
 
     return fetch(requestURL, {

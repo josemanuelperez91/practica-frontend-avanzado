@@ -1,5 +1,5 @@
 import renderBeerCards from "./grid.js";
-import renderSigInDialog from "./sigin.js";
+import renderSigInDialog from "./signin.js";
 
 export const STORAGE_SEARCH_KEY = "search_value";
 export const STORAGE_MONTH_KEY = "month_value";
@@ -12,7 +12,7 @@ const monthFilterButtonElement = document.querySelector(
 const searchFilterButtonElement = document.querySelector(
   ".bf-navbar-icon.search"
 );
-const sigInButtonElement = document.querySelector(".bf-sigin");
+const signInButtonElement = document.querySelector(".bf-signin");
 
 monthFilterButtonElement.onclick = function() {
   searchInputElement.style.display = "none";
@@ -30,7 +30,7 @@ searchFilterButtonElement.onclick = function() {
   this.classList.add("active");
 };
 
-sigInButtonElement.onclick = renderSigInDialog;
+signInButtonElement.onclick = renderSigInDialog;
 
 let searchValue = localStorage.hasOwnProperty(STORAGE_SEARCH_KEY)
   ? localStorage.getItem(STORAGE_SEARCH_KEY)

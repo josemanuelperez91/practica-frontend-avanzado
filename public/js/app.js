@@ -10,10 +10,10 @@ let storedMonth = localStorage.hasOwnProperty(STORAGE_MONTH_KEY)
   ? localStorage.getItem(STORAGE_MONTH_KEY)
   : "";
 
-
-
 page("/", () => {
   renderBeerCards(storedSearch, storedMonth);
 });
-page("/beer/:id", ctx => renderBeer(ctx.params.id));
+page("/beer/:id", ctx => {
+  renderBeer(ctx.params.id);
+});
 page();

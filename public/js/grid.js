@@ -1,6 +1,5 @@
 import BeerFlixAPI from "./api-beerflix.js";
 import resetMain from "./reset.js";
-
 const DEFAULT_GRID_LIMIT = 10;
 
 const templateBeerCard = beer => {
@@ -13,8 +12,7 @@ const templateBeerCard = beer => {
             <br> ${beer.firstBrewed}</h3>
           </div>
         </div>
-        </a>
-    `;
+        </a>`;
 };
 
 const renderBeerCards = async (search, date, limit = DEFAULT_GRID_LIMIT) => {
