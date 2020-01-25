@@ -10,17 +10,24 @@
 
   <body>
     <nav class="bf-navbar">
-      <a href="/">
-        <h1 class="bf-navbar-logo">BeerFlix</h1>
-      </a>
-      <div class="bf-navbar-month">
-        <img class="bf-navbar-icon" src="/icons/month.svg" />
+        <a class="bf-navbar-logo-link" href="/">
+          <h1 class="bf-navbar-logo">BeerFlix</h1>
+        </a>
+     
+      <div class="bf-navbar-inputs">
         <input type="month" class="bf-input-month" />
+        <input class="bf-input-search" placeholder="Search..." type="search" /> 
       </div>
-      <div class="bf-navbar-search">
-        <img class="bf-navbar-icon" src="/icons/search.svg" />
-        <input class="bf-input-search" placeholder="Search..." type="search" />
-      </div>
+     
+
+        <div class="bf-navbar-buttons">
+          <img class="bf-navbar-icon month" src="/icons/month.svg" />
+          <img class="bf-navbar-icon search active" src="/icons/search.svg" />
+          <button class="bf-sigin">Sign In</button>
+        </div>
+
+
+
     </nav>
     <header class="bf-header">
       <picture>

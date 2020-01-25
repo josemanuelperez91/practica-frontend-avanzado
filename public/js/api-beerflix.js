@@ -77,31 +77,6 @@ export default class BeerFlixAPI {
         throw err;
       });
   }
-  static async postComment(beerID, commentText) {
-    const requestURL = `${APIURL}/beers/${beerID}/comment`;
-
-    return fetch(requestURL, {
-      method: "POST",
-      headers: {
-        "X-API-KEY": APIKEY,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ comment: commentText })
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`API Error with comment in beer ${beerID}`);
-        }
-        return response.json();
-      })
-      .then(result => {
-        return result.beer.comments;
-      })
-      .catch(err => {
-        console.error(err.message);
-        throw err;
-      });
-  }
 
   static async postLike(beerID) {
     const requestURL = `${APIURL}/beers/${beerID}/like`;
@@ -127,6 +102,54 @@ export default class BeerFlixAPI {
         throw err;
       });
   }
-}
 
-// export default BeerFlixApi;
+  static async sigIn(email) {
+    const requestURL = `${APIURL}/user/login`;
+
+    return fetch(requestURL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ email: email })
+    })
+      .then(response => {
+        console.log(response);
+        if (!response.ok) {
+          throw new Error(`User not Found`);
+        }
+        return response.json();
+      })
+      .then(result => {
+        return result.user.apiKey;
+      })
+      .catch(err => {
+        console.error(err.message);
+        throw err;
+      });
+  }
+  static async sigIn(email) {
+    const requestURL = `${APIURL}/user/login`;
+
+    return fetch(requestURL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ email: email })
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`API Error logining in ${email}`);
+        }
+        return response.json();
+      })
+      .then(result => {
+        return result.user.apiKey;
+      })
+      .catch(err => {
+        console.error(err.message);
+        throw err;
+      });
+  }
+}

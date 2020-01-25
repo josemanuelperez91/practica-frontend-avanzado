@@ -4,6 +4,8 @@
 @import "beer.css";
 @import "responsiveness.css";
 @import "header.css";
+@import "sigin.css";
+
 
 *,
 *::before,
@@ -31,6 +33,9 @@ input:focus {
   -webkit-box-shadow: inset 0 0 4px 2px #edae49;
   box-shadow: inset 0 0 4px 2px #edae49;
 }
+input.invalid{
+  box-shadow: inset 0 0 0px 4px #f15025;
+}
 
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -39,4 +44,16 @@ body {
   background-image: linear-gradient(1turn, #f15025, #ffa630);
   background-repeat: no-repeat;
   background-position-y: 150px;
+}
+
+body.blocked {
+  opacity: 0.1;
+  background: rgba(0, 0, 0, 0.8);
+  height: 100%;
+  overflow: hidden;
+}
+body.blocked main,
+body.blocked nav
+ {
+  pointer-events: none;
 }

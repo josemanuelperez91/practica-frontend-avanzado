@@ -1,0 +1,60 @@
+.bf-sigin-dialog {
+  position: absolute;
+
+  z-index: 999;
+  width: 80vw;
+
+  left: 10vw;
+  top: 20vh;
+
+  border-radius: 8px;
+
+  padding: 10px;
+
+  background: #f15025;
+  background-image: linear-gradient(1turn, #f15025, #ffa630);
+
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+
+  animation: appear .2s forwards  ;
+}
+
+@keyframes appear {
+    from { transform: translateY(-20vh); }
+    to   { transform: translateY(0vh); }
+  }
+  @keyframes shake {
+    from { transform:  translateX(-10px); }
+    to   { transform:  translateX(10px); }
+  }
+.bf-sigin-input {
+  border-width: 0;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+  padding: 10px;
+}
+.bf-sigin-info {
+    margin: 20px 10px;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+.bf-sigin-button {
+  border-width: 0;
+  border-radius: 8px;
+  display: inline-block;
+  font-size: 1rem;
+  width: 100%;
+  background-color: rgb(129, 43, 19);
+  color: white;
+  height: 38px;
+  cursor: pointer;
+}
+
+.bf-sigin-button.cancel {
+  background-color: white;
+  margin-top: 10px;
+  color: rgb(129, 43, 19);
+}

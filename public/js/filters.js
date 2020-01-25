@@ -1,10 +1,36 @@
 import renderBeerCards from "./grid.js";
+import renderSigInDialog from "./sigin.js";
 
 export const STORAGE_SEARCH_KEY = "search_value";
 export const STORAGE_MONTH_KEY = "month_value";
 
 const searchInputElement = document.querySelector(".bf-input-search");
 const monthInputElement = document.querySelector(".bf-input-month");
+const monthFilterButtonElement = document.querySelector(
+  ".bf-navbar-icon.month"
+);
+const searchFilterButtonElement = document.querySelector(
+  ".bf-navbar-icon.search"
+);
+const sigInButtonElement = document.querySelector(".bf-sigin");
+
+monthFilterButtonElement.onclick = function() {
+  searchInputElement.style.display = "none";
+  monthInputElement.style.display = "block";
+
+  searchFilterButtonElement.classList.remove("active");
+  this.classList.add("active");
+};
+
+searchFilterButtonElement.onclick = function() {
+  monthInputElement.style.display = "none";
+  searchInputElement.style.display = "block";
+
+  monthFilterButtonElement.classList.remove("active");
+  this.classList.add("active");
+};
+
+sigInButtonElement.onclick = renderSigInDialog;
 
 let searchValue = localStorage.hasOwnProperty(STORAGE_SEARCH_KEY)
   ? localStorage.getItem(STORAGE_SEARCH_KEY)

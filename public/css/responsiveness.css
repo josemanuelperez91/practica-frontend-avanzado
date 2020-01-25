@@ -1,15 +1,28 @@
 @media all and (max-width: 720px) {
   .bf-navbar {
-    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .bf-navbar-logo-link{
+    width: 100%;
   }
    .bf-main {
-    margin-top: 120px;
+    margin-top: 150px;
   } 
-  .bf-navbar-logo {
-    margin: 10px 0 10px 0;
+  .bf-header{
+    margin-top: 7px !important;
   }
   .bf-navbar-search input {
     width: 80vw;
+  }
+  .bf-navbar-logo{
+    margin: 10px 0 0 10px;
+  }
+  .bf-navbar-inputs,
+  .bf-navbar-buttons{
+    width: calc(50% - 10px);
+  }
+  .bf-navbar-inputs{
+    margin: 0 10px 0 10px;
   }
   .bf-header-image {
     height: 12vw;

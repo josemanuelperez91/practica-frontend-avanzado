@@ -17,14 +17,15 @@
 }
 
 .bf-navbar-icon {
-  position: relative;
-  float: left;
-  top: 10px;
-  right: 2px;
-  height: 40px;
-  width: 40px;
+  margin: 8px;
+  height: 38px;
+  width: 38px;
+  display: inline-block;
+  filter: invert(1);
 }
-
+.bf-navbar-icon.active {
+ filter: drop-shadow(0px 0px 6px white) invert(0);
+}
 .bf-navbar-logo {
   font-size: 3rem;
   color: white;
@@ -33,23 +34,42 @@
   margin: 10px 0px 10px 25px;
 }
 
-.bf-navbar-search {
-  padding-right: 10px;
+.bf-navbar-inputs{
+  width: 300px;
 }
-.bf-navbar-search input {
-  padding: 10px;
-}
-.bf-navbar-search input,
-.bf-navbar-month input {
-  padding: 7px;
+.bf-input-month,
+.bf-input-search {
   border-width: 0;
   border-radius: 8px;
   font-size: 1rem;
   margin: 10px 0px;
-  width: 180px;
+  width: 100%;
 }
-.bf-navbar-search input {
+
+.bf-input-search {
   padding: 10px;
+}
+.bf-input-month {
+  padding: 7px;
+  display: none;
+}
+
+.bf-navbar-buttons{
+  display: flex;
+  width: 210px;
+}
+
+.bf-sigin {
+  border-width: 0;
+  border-radius: 8px;
+  display: inline-block;
+  font-size: 1rem;
+  width: 100%;
+  background-color: #edae49;
+  color: white;
+  margin: 10px;
+  height: 38px;
+  cursor: pointer;
 }
 
 .bf-navbar-search input::-webkit-input-placeholder {
