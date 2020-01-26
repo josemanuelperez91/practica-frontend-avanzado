@@ -7,6 +7,7 @@ const signInButtonElement = document.querySelector(".bf-signin");
 
 const signOut = () => {
   cookieManager.deleteCookie(API_KEY_COOKIE_NAME);
+  localStorage.clear();
   window.location.reload();
 };
 

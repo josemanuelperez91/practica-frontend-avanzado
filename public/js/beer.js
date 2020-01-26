@@ -127,7 +127,7 @@ const renderBeer = async beerID => {
 
 const renderComments = comments => {
   const commentsListContainer = document.querySelector(".bf-comment-list");
-  if (commentsListContainer.size) {
+  if (comments.length > 0) {
     commentsListContainer.innerHTML = comments
       .map(comment => templateComment(comment))
       .join("");
