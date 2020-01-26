@@ -10,7 +10,7 @@
 
 `npm install`
 
-to download all the required dependencies, including Express
+to download all the required dependencies, including Express.
 
 ## Run
 
