@@ -4,7 +4,7 @@
 
 1. Download the repository, from .zip or with
 
-    `git clone https://github.com/josemanuelperez91/practica-frontend-avanzado`
+    `git clone https://github.com/josemanuelperez91/practica-frontend-avanzado.git`
 
 2. In the package.json folder, execute 
 
