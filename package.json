@@ -4,7 +4,7 @@
   "description": "Practica FrontEnd Avanzado",
   "main": "index.html",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "page": "^1.11.5"
   },
   "devDependencies": {
